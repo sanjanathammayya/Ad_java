@@ -1,0 +1,33 @@
+import java.sql.*;
+import java.io.*;
+public class Database{
+public static void main(String()args)
+{
+ try
+   {
+    Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
+    Connection con=DriverManager.getConnection("jdbc:ucanaccess://c//Eclipse//Test//A1.accdb");
+    Statement s=con.createStatement();
+    System.out.println("Connection established");
+    s.execute("create table Student(USN varchar, Sname varchar, emailid varchar)");
+    System.out.println("Table created");
+    s.executeUpdate("insert into Student('4ZX18CS095','Suma','suma12@gmail.com");
+    s.executeUpdate("insert into Student('4ZX18CS094','Ram','ram670@gmail.com");
+    System.out.println("Inserted Successfully");
+    resultSet r=s.executeQuery("select from Student");
+    System.out.println("The records in the table are:");
+    while(r.next())
+   {
+    String usn=r.getString("USN");
+    String studentname=r.getString("Sname");
+    String Email=r.getString("emailid");
+    System.out.println(usn+ "," +studentname ","+Email);
+   }
+   }
+Catch(Exception e)
+{
+ System.out.println(e);
+}
+}
+}   
+    
